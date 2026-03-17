@@ -3,6 +3,9 @@ import useItems from "./hooks/useItems";
 import useAddItem from "./hooks/useAddItem";
 import useDeleteItem from "./hooks/useDeleteItem";
 import ConnectionTest from "./components/ConnectionTest";
+import ItemsList from "./components/ItemList";
+import AddItemForm from "./components/AddItemForm";
+
 
 //main component
 function App() {
@@ -12,8 +15,8 @@ function App() {
   return (
     <main className="app">
       <h1>smartShelfUI</h1>
-      <ConnectionTest />
-        <h2>Items</h2>
+      <AddItemForm onAdd={() => refetch()} />
+      <ItemsList />
     </main>
   );
 }

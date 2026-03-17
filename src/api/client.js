@@ -13,7 +13,7 @@ async function request(path, options = {}) {
         //todo, for real implementation, should include token in headers, not body 
         options.body = JSON.stringify({
             ...JSON.parse(options.body || "{}"),
-            ...(TOKEN ? { Authorization: `Bearer ${TOKEN}` } : {}),
+            ...(TOKEN ? { token : TOKEN } : {}),
         });
     }
 
@@ -22,7 +22,6 @@ async function request(path, options = {}) {
         headers: {
             ...options.headers,
             "Content-Type": "application/json",
-            
         },
     });
 
@@ -42,16 +41,16 @@ export const testApi = () => request("");
 export const items = () => request("/items?token=" + TOKEN);
 
 //endpoint for adding an item from UI input
-export const addItem = (add_item) =>
+export const addItem = (data) =>
     request("/add_item", {
         method: "POST",
-        body: JSON.stringify(add_item)
+        body: JSON.stringify({name: data.name })
     });
 
 
 //endpoint for deleting an item from UI input
-export const deleteItem = (delete_item) => 
+export const deleteItem = (id) => 
     request("/delete", {
         method: "POST",
-        body: JSON.stringify(delete_item)
+        body: JSON.stringify({ item_id: id })
     });
