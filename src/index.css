@@ -20,21 +20,51 @@ body {
 
 /*main container with max width*/
 .app {
-  width: min(760px, 100%);
-  padding: 24px;
-  text-align: center;
+
+    padding: 20px;
 }
 
 /*primary action button*/
 .btn {
   margin-top: 12px;
-  padding: 10px 14px;
+  padding: 15px 15px;
   border: 0;
-  border-radius: 8px;
-  background: #0f766e;
+  border-radius: 50px;
+  background: #115c56;
   color: #ffffff;
   font-weight: 700;
   cursor: pointer;
+}
+
+/*delete x icon*/
+.btn-delete {
+    margin-left: 12px;
+    padding: 6px 10px;
+    border: 0;
+    border-radius: 50%;
+    color:#000000;
+    font-weight: 700;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    top:-10px;
+    right:-10px;
+}
+
+.add-item-form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/*rounded input fields*/
+.input {
+  max-width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-top: 12px;
 }
 
 /*disabled button state*/
@@ -57,4 +87,39 @@ body {
   background: #ffffff;
   text-align: left;
   overflow: auto;
+}
+
+/*item card styling*/
+.item-card {
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  text-align: left;
+  border: 1px solid #313337;
+} 
+
+.item-list {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 16px;
+  justify-content: center;
+} 
+
+@media (max-width: 600px) {
+
+    .app {
+        width: 95%;
+        max-width: 1000px;
+        padding: 20px;
+    }
+    .add-item-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+  .item-list {
+    grid-template-columns: auto;
+  }
 }

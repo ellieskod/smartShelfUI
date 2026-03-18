@@ -14,7 +14,7 @@ function AddItemForm({ onAdd }) {
 
     return (
         <form className="add-item-form" onSubmit={handleSubmit}>
-            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Item name" required />
+            <input type="text" className="input" value={name} onChange={(e) => setName(e.target.value)} placeholder="Item name" required />
             <button type="submit" className="btn" disabled={loading}>Add Item</button>
             {error && <p className="error">{error}</p>}
         </form>
