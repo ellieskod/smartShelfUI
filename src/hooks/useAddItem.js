@@ -8,10 +8,12 @@ function useAddItem() {
     const [error, setError] = useState("");
     const [data, setData] = useState(null);
 
-    const execute = async (name) => {
+    const execute = async (input) => {
         setLoading(true);
         try {
-            const res = await addItem(name);
+            //handle both string input (from barcode) and object input (from form)
+            const nameValue = typeof input === "string" ? input : input.name;
+            const res = await addItem({ name: nameValue });
             setData(res);
             setError("");
         }

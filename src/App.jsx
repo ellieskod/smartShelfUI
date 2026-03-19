@@ -1,29 +1,18 @@
-import { useState } from "react";
-import useItems from "./hooks/useItems";
-import useAddItem from "./hooks/useAddItem";
-import useDeleteItem from "./hooks/useDeleteItem";
-import ConnectionTest from "./components/ConnectionTest";
-import RemovedItems from "./components/RemovedItems";
-import AddItemForm from "./components/AddItemForm";
-import OnShelfItems from "./components/OnShelfItems";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DevPage from "./pages/DevPage";
+import ShelfPage from "./pages/ShelfPage";
+
 
 //main component
 function App() {
-
-
-  //render UI with mode indicator and result display
-  return (
-    <main className="app">
-      <h1>Smart Shelf UI</h1>
-        <AddItemForm onAdd={() => refetch()} />
-        <div className="item-card-container">
-           <h2>On Shelf</h2>
-           <OnShelfItems />
-           <h2>Removed</h2>
-           <RemovedItems />
-        </div>
-    </main>
-  );
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<ShelfPage />} />
+                <Route path="/dev" element={<DevPage />} />
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 export default App;
